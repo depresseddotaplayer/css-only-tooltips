@@ -1,16 +1,40 @@
 * {
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
-div > img {
-    width: 400px;
-    height: 400px;
+.avatar {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background-image: url(/assets/images/photo_2024-04-29_07-20-21.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.avatar::before,
+.avatar::after {
+  position: absolute;
+  top: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+}
+
+.avatar::before {
+  content: attr(data-tooltip);
+  width: max-content;
+  max-width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  color: white;
+  background: black;
 }
